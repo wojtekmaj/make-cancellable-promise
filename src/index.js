@@ -4,7 +4,7 @@ export default function makeCancellablePromise(promise) {
   const wrappedPromise = new Promise((resolve, reject) => {
     promise
       .then((...args) => !isCancelled && resolve(...args))
-      .catch(error => !isCancelled && reject(error));
+      .catch((error) => !isCancelled && reject(error));
   });
 
   return {
