@@ -30,39 +30,38 @@ Typically, you'd want to use `makeCancellablePromise` in React components. If yo
 Here's how you can use `makeCancellablePromise` with React components:
 
 ```jsx
-class MyComponent extends Component {
-  state = {
-    status: 'initial',
-  }
+import React, { useEffect, useState } from 'react';
+import Clock from 'react-clock';
 
-  componentDidMount() {
-    this.cancellable = makeCancellable(fetchData());
+function MyApp() {
+  const [status, setStatus] = useState('initial');
 
-    this.cancellable.promise
-      .then(() => this.setState({ status: 'success' }))
-      .catch(() => this.setState({ status: 'error' }));
-  };
+  useEffect(() => {
+    setStatus('pending');
 
-  componentWillUnmount() {
-    this.cancellable.cancel();
-  }
+    const cancellable = makeCancellable(fetchData());
 
-  render() {
-    const { status } = this.state;
+    cancellable.promise
+      .then(() => setStatus('success'))
+      .catch(() => setStatus('error'));
 
-    const text = (() => {
-      switch (status) {
-        case 'pending': return 'Fetching…';
-        case 'success': return 'Success';
-        case 'error': return 'Error!';
-        default: return 'Click to fetch';
-      }
-    })();
+    return () => {
+      cancellable.cancel();
+    };
+  }, []);
 
-    return (
-      <p>{text}</p>
-    );
-  }
+  const text = (() => {
+    switch (status) {
+      case 'pending': return 'Fetching…';
+      case 'success': return 'Success';
+      case 'error': return 'Error!';
+      default: return 'Click to fetch';
+    }
+  })();
+
+  return (
+    <p>{text}</p>
+  );
 }
 ```
 
