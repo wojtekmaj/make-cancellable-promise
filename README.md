@@ -27,45 +27,7 @@ const { promise, cancel } = makeCancellablePromise(myPromise);
 
 Typically, you'd want to use `makeCancellablePromise` in React components. If you call `setState` on an unmounted component, React will throw an error.
 
-Here's how you can use `makeCancellablePromise` with React components:
-
-```jsx
-import React, { useEffect, useState } from 'react';
-import Clock from 'react-clock';
-
-function MyApp() {
-  const [status, setStatus] = useState('initial');
-
-  useEffect(() => {
-    setStatus('pending');
-
-    const cancellable = makeCancellable(fetchData());
-
-    cancellable.promise
-      .then(() => setStatus('success'))
-      .catch(() => setStatus('error'));
-
-    return () => {
-      cancellable.cancel();
-    };
-  }, []);
-
-  const text = (() => {
-    switch (status) {
-      case 'pending': return 'Fetching…';
-      case 'success': return 'Success';
-      case 'error': return 'Error!';
-      default: return 'Click to fetch';
-    }
-  })();
-
-  return (
-    <p>{text}</p>
-  );
-}
-```
-
-or with React Hooks:
+Here's how you can use `makeCancellablePromise` with React:
 
 ```jsx
 function MyComponent() {
