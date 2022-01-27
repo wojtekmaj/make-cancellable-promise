@@ -2,17 +2,18 @@
   "presets": ["@babel/env"],
   "env": {
     "production-esm": {
-      "presets": [
-        ["@babel/env", { "modules": false }]
-      ]
+      "presets": [["@babel/env", { "modules": false }]]
     },
     "test": {
       "presets": [
-        ["@babel/env", {
-          "targets": {
-            "node": "current"
+        [
+          "@babel/env",
+          {
+            "targets": {
+              "node": "current"
+            }
           }
-        }]
+        ]
       ]
     }
   }

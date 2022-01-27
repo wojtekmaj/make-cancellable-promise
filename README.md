@@ -1,15 +1,17 @@
 [![npm](https://img.shields.io/npm/v/make-cancellable-promise.svg)](https://www.npmjs.com/package/make-cancellable-promise) ![downloads](https://img.shields.io/npm/dt/make-cancellable-promise.svg) [![CI](https://github.com/wojtekmaj/make-cancellable-promise/workflows/CI/badge.svg)](https://github.com/wojtekmaj/make-cancellable-promise/actions) [![tested with jest](https://img.shields.io/badge/tested_with-jest-99424f.svg)](https://github.com/facebook/jest)
 
 # Make-Cancellable-Promise
+
 Make any Promise cancellable.
 
 ## tl;dr
-* Install by executing `npm install make-cancellable-promise` or `yarn add make-cancellable-promise`.
-* Import by adding `import makeCancellablePromise from 'make-cancellable-promise`.
-* Do stuff with it!
-    ```js
-    const { promise, cancel } = makeCancellablePromise(myPromise);
-    ```
+
+- Install by executing `npm install make-cancellable-promise` or `yarn add make-cancellable-promise`.
+- Import by adding `import makeCancellablePromise from 'make-cancellable-promise`.
+- Do stuff with it!
+  ```js
+  const { promise, cancel } = makeCancellablePromise(myPromise);
+  ```
 
 ## User guide
 
@@ -36,9 +38,7 @@ function MyComponent() {
   useEffect(() => {
     const { promise, cancel } = makeCancellable(fetchData());
 
-    promise
-      .then(() => setStatus('success'))
-      .catch(() => setStatus('error'));
+    promise.then(() => setStatus('success')).catch(() => setStatus('error'));
 
     return () => {
       cancel();
@@ -47,15 +47,17 @@ function MyComponent() {
 
   const text = (() => {
     switch (status) {
-      case 'pending': return 'Fetching…';
-      case 'success': return 'Success';
-      case 'error': return 'Error!';
-      default: return 'Click to fetch';
+      case 'pending':
+        return 'Fetching…';
+      case 'success':
+        return 'Success';
+      case 'error':
+        return 'Error!';
+      default:
+        return 'Click to fetch';
     }
   })();
 
-  return (
-    <p>{text}</p>
-  );
+  return <p>{text}</p>;
 }
 ```
