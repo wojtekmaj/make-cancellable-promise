@@ -18,7 +18,6 @@
     "prettier": "prettier --check . --cache",
     "test": "yarn lint && yarn prettier && yarn jest"
   },
-  "jest": {},
   "keywords": [
     "promise",
     "promise-cancelling"
