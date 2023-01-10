@@ -3,7 +3,7 @@ import makeCancellablePromise from './index';
 jest.useFakeTimers();
 
 describe('makeCancellablePromise()', () => {
-  function resolveInFiveSeconds() {
+  function resolveInFiveSeconds(): Promise<string> {
     return new Promise((resolve) => {
       setTimeout(() => {
         resolve('Success');
