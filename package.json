@@ -1,6 +1,6 @@
 {
   "name": "make-cancellable-promise",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Make any Promise cancellable.",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
