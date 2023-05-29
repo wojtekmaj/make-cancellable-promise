@@ -1,5 +1,5 @@
 import { describe, expect, it, vi } from 'vitest';
-import makeCancellablePromise from './index';
+import makeCancellablePromise from './index.js';
 
 vi.useFakeTimers();
 
