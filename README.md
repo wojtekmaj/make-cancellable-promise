@@ -61,3 +61,20 @@ function MyComponent() {
   return <p>{text}</p>;
 }
 ```
+
+## License
+
+The MIT License.
+
+## Author
+
+<table>
+  <tr>
+    <td >
+      <img src="https://avatars.githubusercontent.com/u/5426427?v=4&s=128" width="64" height="64" alt="Wojciech Maj">
+    </td>
+    <td>
+      <a href="https://github.com/wojtekmaj">Wojciech Maj</a>
+    </td>
+  </tr>
+</table>
