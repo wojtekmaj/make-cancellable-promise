@@ -1,4 +1,4 @@
-[![npm](https://img.shields.io/npm/v/make-cancellable-promise.svg)](https://www.npmjs.com/package/make-cancellable-promise) ![downloads](https://img.shields.io/npm/dt/make-cancellable-promise.svg) [![CI](https://github.com/wojtekmaj/make-cancellable-promise/workflows/CI/badge.svg)](https://github.com/wojtekmaj/make-cancellable-promise/actions)
+[![npm](https://img.shields.io/npm/v/make-cancellable-promise.svg)](https://www.npmjs.com/package/make-cancellable-promise) ![downloads](https://img.shields.io/npm/dt/make-cancellable-promise.svg) [![CI](https://github.com/wojtekmaj/make-cancellable-promise/actions/workflows/ci.yml/badge.svg)](https://github.com/wojtekmaj/make-cancellable-promise/actions)
 
 # Make-Cancellable-Promise
 
