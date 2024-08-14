@@ -14,7 +14,7 @@ describe('makeCancellablePromise()', () => {
   }
 
   function rejectInFiveSeconds() {
-    return new Promise((resolve, reject) => {
+    return new Promise((_resolve, reject) => {
       setTimeout(() => {
         reject(new Error('Error'));
       }, 5000);
