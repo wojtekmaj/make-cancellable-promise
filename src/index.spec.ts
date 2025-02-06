@@ -48,16 +48,8 @@ describe('makeCancellablePromise()', () => {
   });
 
   it('does not resolve promise if cancelled', async () => {
-    expect.assertions(0);
-
-    const resolve = vi.fn(() => {
-      // Will fail because of expect.assertions(0);
-      expect(true).toBe(true);
-    });
-    const reject = vi.fn(() => {
-      // Will fail because of expect.assertions(0);
-      expect(true).toBe(true);
-    });
+    const resolve = vi.fn();
+    const reject = vi.fn();
 
     const { promise, cancel } = makeCancellablePromise(rejectInFiveSeconds());
     promise.then(resolve).catch(reject);
@@ -65,19 +57,14 @@ describe('makeCancellablePromise()', () => {
     vi.advanceTimersByTime(2500);
     cancel();
     vi.advanceTimersByTime(2500);
+
+    expect(resolve).not.toHaveBeenCalled();
+    expect(reject).not.toHaveBeenCalled();
   });
 
   it('does not reject promise if cancelled', () => {
-    expect.assertions(0);
-
-    const resolve = vi.fn(() => {
-      // Will fail because of expect.assertions(0);
-      expect(true).toBe(true);
-    });
-    const reject = vi.fn(() => {
-      // Will fail because of expect.assertions(0);
-      expect(true).toBe(true);
-    });
+    const resolve = vi.fn();
+    const reject = vi.fn();
 
     const { promise, cancel } = makeCancellablePromise(rejectInFiveSeconds());
     promise.then(resolve).catch(reject);
@@ -85,5 +72,8 @@ describe('makeCancellablePromise()', () => {
     vi.advanceTimersByTime(2500);
     cancel();
     vi.advanceTimersByTime(2500);
+
+    expect(resolve).not.toHaveBeenCalled();
+    expect(reject).not.toHaveBeenCalled();
   });
 });
