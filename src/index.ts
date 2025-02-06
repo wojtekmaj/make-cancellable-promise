@@ -1,7 +1,10 @@
-export default function makeCancellablePromise<T>(promise: Promise<T>) {
+export default function makeCancellablePromise<T>(promise: Promise<T>): {
+  promise: Promise<T>;
+  cancel(): void;
+} {
   let isCancelled = false;
 
-  const wrappedPromise: typeof promise = new Promise((resolve, reject) => {
+  const wrappedPromise: Promise<T> = new Promise((resolve, reject) => {
     promise
       .then((value) => !isCancelled && resolve(value))
       .catch((error) => !isCancelled && reject(error));
