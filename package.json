@@ -1,6 +1,6 @@
 {
   "name": "make-cancellable-promise",
-  "version": "1.3.2",
+  "version": "2.0.0",
   "description": "Make any Promise cancellable.",
   "type": "module",
   "sideEffects": false,
