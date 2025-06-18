@@ -2,6 +2,7 @@ import { describe, expect, it, vi } from 'vitest';
 
 import makeCancellablePromise from './index.js';
 
+// biome-ignore lint/correctness/useHookAtTopLevel: False positive, see https://github.com/biomejs/biome/issues/6396
 vi.useFakeTimers();
 
 describe('makeCancellablePromise()', () => {
