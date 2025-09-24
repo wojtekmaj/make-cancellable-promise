@@ -50,5 +50,5 @@
     "url": "git+https://github.com/wojtekmaj/make-cancellable-promise.git"
   },
   "funding": "https://github.com/wojtekmaj/make-cancellable-promise?sponsor=1",
-  "packageManager": "yarn@4.10.2"
+  "packageManager": "yarn@4.10.3"
 }
