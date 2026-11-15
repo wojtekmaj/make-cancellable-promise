@@ -9,6 +9,7 @@ Make any Promise cancellable.
 - Install by executing `npm install make-cancellable-promise` or `yarn add make-cancellable-promise`.
 - Import by adding `import makeCancellablePromise from 'make-cancellable-promise`.
 - Do stuff with it!
+
   ```ts
   const { promise, cancel } = makeCancellablePromise(myPromise);
   ```
